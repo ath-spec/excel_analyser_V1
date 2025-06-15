@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Excel to PPT Processor</title>
+</head>
+<body>
+  <h1>Upload Excel File and Enter Query</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul style="color:red;">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <form method="post" enctype="multipart/form-data">
+    <label for="file">Excel File:</label>
+    <input type="file" name="file" id="file" accept=".xlsx, .xls"><br><br>
+    <label for="query">Enter Query:</label>
+    <input type="text" name="query" id="query" placeholder="e.g., housewife in Nairobi" required><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
